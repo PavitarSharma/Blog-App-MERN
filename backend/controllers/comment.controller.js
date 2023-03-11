@@ -17,7 +17,7 @@ const createComment = async (req, res, next) => {
     const newComment = new Comment({
       content,
       user: userId,
-      postUserId,
+      postUserId: userId,
       postId,
     });
 
