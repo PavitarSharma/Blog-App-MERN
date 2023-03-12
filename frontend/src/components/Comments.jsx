@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteComment, getComments } from "../redux/reducers/commentSlice";
 import { useNavigate } from "react-router-dom";
 
-const Comments = () => {
+const Comments = ({comments}) => {
   const dispatch = useDispatch();
-  const { comments } = useSelector((state) => state.comments);
+
   const navigate = useNavigate();
 
   useEffect(() => {

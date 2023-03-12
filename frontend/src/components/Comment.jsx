@@ -25,7 +25,11 @@ const Comment = ({ postId }) => {
     };
 
     dispatch(createComment(data));
-    dispatch(reset())
+    dispatch(reset());
+    setTimeout(() => {
+      document.location.reload();
+    }, 2000);
+    setComment("");
   };
   return (
     <Paper
@@ -34,6 +38,7 @@ const Comment = ({ postId }) => {
       sx={{
         display: "flex",
         alignItems: "center",
+        justifyContent: "space-between",
         width: "100%",
         gap: "10px",
         borderRadius: "25px",
@@ -48,7 +53,7 @@ const Comment = ({ postId }) => {
           alignItems: "center",
           justifyContent: "space-between",
           gap: "10px",
-          width: "80%",
+          width: "90%",
         }}
       >
         <input

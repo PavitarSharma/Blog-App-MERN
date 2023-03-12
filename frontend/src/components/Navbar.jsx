@@ -6,15 +6,15 @@ import { logout } from "../redux/reducers/authSlice";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
 
   const logOut = () => {
-    dispatch(logout())
-    localStorage.removeItem("token")
-    localStorage.removeItem("user")
-    navigate("/login")
-  }
+    dispatch(logout());
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
   return (
     <Box
       sx={{
@@ -44,8 +44,21 @@ const Navbar = () => {
       <Box>
         {user ? (
           <Stack direction="row" alignItems="center" gap="20px">
-            <Typography sx={{ fontWeight: 500 }}>{user.username}</Typography>
-            <Button onClick={logOut} variant="outlined">Log out</Button>
+            <Link to="/blog">
+              <Typography
+                variant="span"
+                fontWeight="500"
+                color="#000"
+                fontSize="17px"
+                sx={{ cursor: "poninter" }}
+              >
+                Create Blog
+              </Typography>
+            </Link>
+            <Typography sx={{ fontWeight: 600 }}>{user.username}</Typography>
+            <Button onClick={logOut} variant="outlined">
+              Log out
+            </Button>
           </Stack>
         ) : (
           <Stack direction="row" alignItems="center" gap="20px">

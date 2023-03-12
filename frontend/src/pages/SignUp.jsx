@@ -19,7 +19,7 @@ const SignUp = () => {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message);
+      alert(message);
     }
 
     if (isSuccess || user) {

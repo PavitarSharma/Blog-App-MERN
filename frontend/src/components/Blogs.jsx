@@ -10,7 +10,6 @@ const Blogs = () => {
     (state) => state.blogs
   );
 
-
   useEffect(() => {
     dispatch(getBlogs());
 
@@ -45,7 +44,7 @@ const Blogs = () => {
                   alt={blog?.title}
                   style={{
                     width: "100%",
-                    height: "100%",
+                    height: "200px",
                     objectFit: "cover",
                     borderTopLeftRadius: "14px",
                     borderTopRightRadius: "14px",

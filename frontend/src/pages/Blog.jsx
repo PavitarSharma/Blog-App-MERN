@@ -1,7 +1,7 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import MessageIcon from "@mui/icons-material/Message";
+// import MessageIcon from "@mui/icons-material/Message";
 
 import Comments from "../components/Comments";
 import { getBlog } from "../redux/reducers/blogSlice";
@@ -9,12 +9,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Comment from "../components/Comment";
 
 const Blog = () => {
-  const [isCommentOpen, setIsCommentOpen] = useState(false);
+  // const [isCommentOpen, setIsCommentOpen] = useState(false);
   const { id } = useParams();
   const dispatch = useDispatch();
   const { blog, isLoading, isError, message } = useSelector(
     (state) => state.blogs
   );
+
 
   useEffect(() => {
     dispatch(getBlog(id));
@@ -50,9 +51,12 @@ const Blog = () => {
           <Typography variant="p">{blog?.description}</Typography>
         </Stack>
 
-        <Box>
+        {/* <Box>
           <Button
-            onClick={() => setIsCommentOpen((prev) => !prev)}
+            onClick={(event) => {
+              event.stopPropagation()
+              setIsCommentOpen((prev) => !prev)
+            }}
             sx={{
               color: "#333",
               cursor: "pointer",
@@ -79,18 +83,17 @@ const Blog = () => {
               Comment
             </Typography>
           </Button>
+        </Box> */}
+
+        {/* {isCommentOpen && (
+          <> */}
+        <Box
+          sx={{
+            padding: "10px",
+          }}
+        >
+          <Comment postId={id} />
         </Box>
-
-        {isCommentOpen && (
-          <Box
-            sx={{
-              padding: "10px",
-            }}
-          >
-            <Comment postId={id}  />
-          </Box>
-        )}
-
         <Box
           sx={{
             padding: "20px",
@@ -99,8 +102,10 @@ const Blog = () => {
             gap: "10px",
           }}
         >
-          <Comments />
+          <Comments comments={blog?.comments} />
         </Box>
+        {/* </>
+        )} */}
       </Box>
     </Box>
   );
