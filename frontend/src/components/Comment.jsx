@@ -7,7 +7,7 @@ import { createComment, reset } from "../redux/reducers/commentSlice";
 const Comment = ({ postId }) => {
   const dispatch = useDispatch();
   const [comment, setComment] = useState("");
-console.log(postId);
+
   const handleOnChange = (event) => {
     setComment(event.target.value);
   };
