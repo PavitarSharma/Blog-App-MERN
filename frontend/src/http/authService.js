@@ -7,13 +7,13 @@ const register = async (userData) => {
 };
 
 const login = async (userData) => {
-  const resposne = await api.post("/users/register", userData);
+  const resposne = await api.post("/users/login", userData);
 
   if (resposne.data) {
     localStorage.setItem("user", JSON.stringify(resposne.data.user));
     localStorage.setItem("token", JSON.stringify(resposne.data.token));
   }
-  return resposne.data.user;
+  return resposne.data;
 };
 
 const authService = {
