@@ -25,7 +25,7 @@ const Login = () => {
       alert("Something went wrong");
     }
 
-    if (isSuccess || user || token) {
+    if (isSuccess || user) {
       navigate(path);
     }
 

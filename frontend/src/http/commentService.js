@@ -33,14 +33,13 @@ const getComment = async (commentId, token) => {
   return response.data.comment;
 };
 
-const updateComment = async (commentId, data, token) => {
+const updateComment = async (commentId, content, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-  const response = await api.patch(`/comments/${commentId}`, data, config);
-
+  const response = await api.patch(`/comments/${commentId}`, content, config);
   return response.data.comment;
 };
 

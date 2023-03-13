@@ -66,10 +66,10 @@ export const updateComment = createAsyncThunk(
   async ({ commentId, content }, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.token;
-
+      console.log(content);
       return await commentService.updateComment(commentId, content, token);
     } catch (error) {
-      console.error(error);
+      console.log(error.message);
       (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();

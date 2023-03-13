@@ -76,7 +76,7 @@ const updateComment = async (req, res, next) => {
     const { content } = req.body;
     const comment = await Comment.findOneAndUpdate(
       { _id: req.params.id, user: req.user.id },
-      { content },
+      req.body,
       { new: true }
     );
 

@@ -30,11 +30,10 @@ const UpdateBlogComment = () => {
     }
   }, [comment, setContent]);
 
-  console.log(comment);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const commentId = id;
+
 
     dispatch(updateComment({ commentId, content }));
   };
